@@ -1,4 +1,4 @@
-This project is being used to learn angular2, a work in progress
+This project is being used to learn angular2! The project is a work in progress.
 
 # ScheduleUI
 
