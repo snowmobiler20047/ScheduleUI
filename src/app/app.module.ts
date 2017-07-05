@@ -11,10 +11,12 @@ import {InstructorService} from './instructor.service';
 import { InstructorSelectorComponent } from './instructor-selector.component';
 import { Instructor } from './instructor';
 import { StudentComponent } from './student.component'
+import { BillingComponent } from './billing/billing.component';
 import { AutoGrowDirective } from './auto-grow.directive'
 import { WeeklyScheduleComponent } from './weekly-schedule.component'
 import { WeeklyScheduleTableComponent } from './weeklySchedule/weekly-schedule-table.component'
 import {WeeklyScheduleService} from './weeklySchedule/weekly-schedule.service';
+import {MapValuesPipe} from './utils/map-values.pipe';
 
 import { requestOptionsProvider } from './default-request-options.service'
 
@@ -25,10 +27,10 @@ const appRoutes: Routes = [
     },
     {
         path: 'billing',
-        component: StudentComponent
+        component: BillingComponent
     },
     {
-        path: 'courses',
+        path: 'instructors',
         component: InstructorComponent
     },
     {
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     InstructorSelectorComponent,
     StudentComponent,
     WeeklyScheduleComponent,
-    WeeklyScheduleTableComponent
+    WeeklyScheduleTableComponent,
+    MapValuesPipe
   ],
   imports: [
     BrowserModule,

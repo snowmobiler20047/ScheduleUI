@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-bordered">
   <thead class="thead-inverse">
     <tr>
       <th>Sunday</th>
@@ -31,3 +31,7 @@
     </tr>
   </tbody>
 </table>
+<div> 
+  <li *ngFor="let w of weeklySchedule | mapValues"> </li>
+</div>
+        

@@ -5,37 +5,21 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
-import {WeeklySchedule} from './weekly-schedule';
-import {TimeSlot} from './timeslot';
-import {KenpoTime} from './kenpotime';
-import {Lesson} from './lesson';
+import {Account} from './account';
 
 @Injectable()
-export class WeeklyScheduleService {
-    private url = 'http://idahokenpo:8080/kenpoSchedule/schedule/weeklySchedule?weeklyScheduleId=58b74a9c6c4935b402f8d816';
+export class AccountService {
 
+    private url = 'http://idahokenpo:8080/kenpoSchedule/account/getAllAccounts';
+    
     constructor (private http: Http) {}
 
-    // private list: TimeSlot[] = [new TimeSlot("id", new KenpoTime("5", "45", true), new KenpoTime("6", "30", true), new Lesson("lessonId", "PRIVATE", "READY", new Set(), "aid", "lessonLinkId")];
-    private myMap: Map<string, TimeSlot[]> = new Map(); 
-    // {
-    //         "MONDAY" : this.list,
-    //         "TUESDAY" : this.list,
-    //         "THURSDAY" : this.list,
-    //         "FRIDAY" : this.list
-    //     }
-
-    private weeklySchedule : WeeklySchedule = new WeeklySchedule("id", this.myMap); 
-
-    // getWeeklySchedule(){
-         
-    // }
-    getWeeklySchedule() : Observable<WeeklySchedule> {
+    getAccounts() : Observable<Account> {
         return this.http.get(this.url)
                                 .map(this.extractData)
                                 .catch(this.handleError);
     }
+
     private extractData(res: Response) {
         let body = res.json();
         console.log(body);
@@ -54,4 +38,5 @@ export class WeeklyScheduleService {
         console.log(errMsg);
         return Observable.throw(errMsg);
     }
+
 }

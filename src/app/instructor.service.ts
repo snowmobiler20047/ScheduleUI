@@ -11,7 +11,7 @@ import { Instructor } from './instructor';
 
 @Injectable()
 export class InstructorService {
-    private instructorUrl = 'http://idahokenpo:8080/kenpoSchedule/instructors';
+    private instructorUrl = 'http://idahokenpo:8080/kenpoSchedule/instructor/instructors';
 
     constructor (private http: Http) {}
     
@@ -23,7 +23,7 @@ export class InstructorService {
     }
     private extractData(res: Response) {
         let body = res.json();
-        console.log(body);
+        // console.log(body);
         return body || { };
     }
 
